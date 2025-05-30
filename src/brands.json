@@ -1,0 +1,37 @@
+[
+  {
+    "id": 0,
+    "name": "Nissan",
+    "image": "/brands/nissan.png"
+  },
+  {
+    "id": 1,
+    "name": "Mercedes",
+    "image": "/brands/mercedes.png"
+  },
+  {
+    "id": 2,
+    "name": "Honda",
+    "image": "/brands/honda.png"
+  },
+  {
+    "id": 3,
+    "name": "Toyota",
+    "image": "/brands/toyota.png"
+  },
+  {
+    "id": 4,
+    "name": "Bmw",
+    "image": "/brands/bmw.png"
+  },
+  {
+    "id": 5,
+    "name": "Mitsubishi",
+    "image": "/brands/mitsubishi.png"
+  },
+  {
+    "id": 6,
+    "name": "Volkswagen",
+    "image": "/brands/volkswagen.png"
+  }
+]
