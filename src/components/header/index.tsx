@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
-import logoImg from "../../assets/DevMotors.png";
-import { FiLogIn, FiUser } from "react-icons/fi";
+import { FiUser } from "react-icons/fi";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { collection, getDocs, query, where } from "firebase/firestore";

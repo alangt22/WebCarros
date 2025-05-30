@@ -1,6 +1,6 @@
 import { Container } from "../../components/container";
 import { useState, useEffect } from "react";
-import { collection, getDocs, orderBy, query, where } from "firebase/firestore";
+import { collection, getDocs, orderBy, query} from "firebase/firestore";
 import { db } from "../../services/firebaseConnection";
 import { Link } from "react-router-dom";
 import { FiLoader } from "react-icons/fi";

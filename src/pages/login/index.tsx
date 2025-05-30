@@ -1,6 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import logoImg from "../../assets/DevMotors.png";
 import { Container } from "../../components/container";
 import { Input } from "../../components/input";
 import { useForm } from "react-hook-form";

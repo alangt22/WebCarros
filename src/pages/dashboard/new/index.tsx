@@ -1,7 +1,7 @@
 import { FiTrash, FiUpload } from "react-icons/fi";
 import { Container } from "../../../components/container";
 import { DashboardHeader } from "../../../components/panelHeader";
-import { set, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { Input } from "../../../components/input";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";

@@ -1,5 +1,4 @@
 import { Link, useNavigate } from "react-router-dom";
-import logoImg from "../../assets/DevMotors.png";
 import { Container } from "../../components/container";
 import { Input } from "../../components/input";
 import { useForm } from "react-hook-form";
@@ -58,6 +57,7 @@ export function Register() {
           displayName: data.name,
         });
         handleInfoUser({
+          phone: null,
           name: data.name,
           email: data.email,
           uid: user.user.uid,
