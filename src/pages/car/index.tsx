@@ -209,24 +209,33 @@ export function CarDetail() {
               <strong>Descrição</strong>
               <p className="mb-4">{car?.description}</p>
 
-              {user && (
-                <div className="bg-gray-100 p-4 rounded-lg mt-6">
-                  <h3 className="text-xl font-bold mb-2">
-                    Informações do Vendedor
-                  </h3>
-                  <p>
-                    <strong>Nome:</strong> {user.name}
-                  </p>
-                  <p>
-                    <strong>Email:</strong> {user.email}
-                  </p>
-                  {user.phone && (
-                    <p>
-                      <strong>Telefone:</strong> {user.phone}
-                    </p>
-                  )}
-                </div>
-              )}
+                  {user && (
+  <div className="bg-white shadow-md rounded-lg p-6 mt-6 w-full max-w-md mx-auto">
+    <h3 className="text-2xl font-semibold text-gray-800 mb-4 ">
+      Informações do Vendedor
+    </h3>
+
+    <div className="space-y-3 text-gray-700">
+      <div>
+        <p className="text-sm font-medium text-gray-500">Nome:</p>
+        <p className="text-lg">{user.name}</p>
+      </div>
+
+      <div>
+        <p className="text-sm font-medium text-gray-500">Email:</p>
+        <p className="text-lg">{user.email}</p>
+      </div>
+
+      {user.phone && (
+        <div>
+          <p className="text-sm font-medium text-gray-500">Telefone:</p>
+          <p className="text-lg">{user.phone}</p>
+        </div>
+      )}
+    </div>
+  </div>
+)}
+
 
               <a
                 href={`https://api.whatsapp.com/send?phone=${user?.phone}&text=Ola vi esse ${car?.name}no site WebCarros e fiquei interessado!`}

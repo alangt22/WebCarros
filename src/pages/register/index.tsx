@@ -51,6 +51,7 @@ export function Register() {
 
   async function onSubmit(data: FormData) {
     setLoading(true);
+    
     createUserWithEmailAndPassword(auth, data.email, data.password)
       .then(async (user) => {
         await updateProfile(user.user, {
@@ -67,10 +68,20 @@ export function Register() {
         setLoading(false);
       })
       .catch((error) => {
-        console.log("Erro ao cadastrar");
-        console.log(error);
-        setLoading(false);
-      });
+        if (error.code === "auth/email-already-in-use") {
+        toast.error("Este e-mail já está cadastrado.");
+      } else if (error.code === "auth/invalid-email") {
+        toast.error("E-mail inválido.");
+      } else if (error.code === "auth/weak-password") {
+        toast.error("A senha precisa ter pelo menos 6 caracteres.");
+      } else {
+        toast.error("Erro ao cadastrar. Tente novamente.");
+        console.error(error);
+      }
+    })
+    .finally(() => {
+      setLoading(false);
+    });
   }
 
   return (
