@@ -1,6 +1,6 @@
 import { Container } from "../../components/container";
 import { useState, useEffect } from "react";
-import { collection, getDocs, orderBy, query} from "firebase/firestore";
+import { collection, getDocs, orderBy, query } from "firebase/firestore";
 import { db } from "../../services/firebaseConnection";
 import { Link } from "react-router-dom";
 import { FiLoader } from "react-icons/fi";
@@ -27,7 +27,7 @@ export function Home() {
   const [cars, setCars] = useState<CarProps[]>([]);
   const [loadImages, setLoadImages] = useState<string[]>([]);
   const [search, setSearch] = useState("");
-   const [selectedBrand, setSelectedBrand] = useState("");
+  const [selectedBrand, setSelectedBrand] = useState("");
   const [allBrands, setAllBrands] = useState<string[]>([]);
   const [loading, setLoading] = useState(false);
 
@@ -55,10 +55,10 @@ export function Home() {
           km: doc.data().km,
           images: doc.data().images,
         });
-        
-      if (doc.data().brand) {
-        brandSet.add(doc.data().brand);
-      }
+
+        if (doc.data().brand) {
+          brandSet.add(doc.data().brand);
+        }
       });
 
       setCars(listCars);
@@ -71,58 +71,64 @@ export function Home() {
     setLoadImages((prevImageLoaded) => [...prevImageLoaded, id]);
   }
 
-async function handleSearch() {
-  if (search === "" && selectedBrand === "") {
-    loadCars();
-    return;
-  }
-
-  setCars([]);
-  setLoadImages([]);
-  setLoading(true);
-
-  const carsRef = collection(db, "cars");
-  const queryRef = query(carsRef, orderBy("created", "desc"));
-
-  const querySnapshot = await getDocs(queryRef);
-
-  const searchTerm = search.toLowerCase();
-  const listCars = [] as CarProps[];
-
-  querySnapshot.forEach((doc) => {
-    const data = doc.data();
-
-    const name = data.name?.toLowerCase() || "";
-    const brand = data.brand?.toLowerCase() || "";
-
-
-        const matchesSearch = name.includes(searchTerm) || brand.includes(searchTerm);
-      const matchesBrand = selectedBrand ? brand === selectedBrand.toLowerCase() : true;
-
-
-    if (matchesSearch && matchesBrand) {
-      listCars.push({
-        id: doc.id,
-        name: data.name,
-        brand: data.brand,
-        year: data.year,
-        uid: data.uid,
-        price: data.price,
-        city: data.city,
-        km: data.km,
-        images: data.images,
-      });
+  async function handleSearch() {
+    if (search === "" && selectedBrand === "") {
+      loadCars();
+      return;
     }
-  });
 
-  setCars(listCars);
-  setLoading(false);
-}
+    setCars([]);
+    setLoadImages([]);
+    setLoading(true);
 
+    const carsRef = collection(db, "cars");
+    const queryRef = query(carsRef, orderBy("created", "desc"));
+
+    const querySnapshot = await getDocs(queryRef);
+
+    const searchTerm = search.toLowerCase();
+    const listCars = [] as CarProps[];
+
+    querySnapshot.forEach((doc) => {
+      const data = doc.data();
+
+      const name = data.name?.toLowerCase() || "";
+      const brand = data.brand?.toLowerCase() || "";
+
+      const matchesSearch =
+        name.includes(searchTerm) || brand.includes(searchTerm);
+      const matchesBrand = selectedBrand
+        ? brand === selectedBrand.toLowerCase()
+        : true;
+
+      if (matchesSearch && matchesBrand) {
+        listCars.push({
+          id: doc.id,
+          name: data.name,
+          brand: data.brand,
+          year: data.year,
+          uid: data.uid,
+          price: data.price,
+          city: data.city,
+          km: data.km,
+          images: data.images,
+        });
+      }
+    });
+
+    setCars(listCars);
+    setLoading(false);
+  }
 
   return (
     <Container>
-      <section className="bg-white p-4 rounded-lg w-full max-w-3xl mx-auto flex justify-center items-center gap-2">
+      <section className="bg-white p-4 rounded-lg w-full max-w-3xl mx-auto flex flex-col justify-center items-center gap-2">
+        <input
+          className="w-full border-2 rounded-lg h-9 px-3 outline-none"
+          placeholder="Digite o nome do carro"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
         <select
           value={selectedBrand}
           onChange={(e) => setSelectedBrand(e.target.value)}
@@ -135,12 +141,6 @@ async function handleSearch() {
             </option>
           ))}
         </select>
-        <input
-          className="w-full border-2 rounded-lg h-9 px-3 outline-none"
-          placeholder="Digite o nome do carro"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-        />
         <button
           onClick={handleSearch}
           className="bg-blue-300 hover:bg-blue-400 cursor-pointer h-9 px-8 rounded-lg text-white font-medium text-lg"
@@ -182,9 +182,7 @@ async function handleSearch() {
                   <h1 className="font-bold text-2xl text-black">
                     {car?.brand}
                   </h1>
-                  <h1 className="font-bold text-2xl text-black">
-                    {car?.name}
-                  </h1>
+                  <h1 className="font-bold text-2xl text-black">{car?.name}</h1>
                 </div>
 
                 <div className="flex flex-col px-2">

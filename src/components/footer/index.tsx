@@ -7,7 +7,7 @@ export function Footer() {
       <p className="mt-4 font-bold text-3xl">Marcas</p>
       <div className="grid grid-cols-4 md:flex gap-4 mt-4">
         {brands.map((brand) => (
-          <div key={brand.id} className="flex bg-amber-50 justify-center items-center px-2 py-2 rounded-2xl">
+          <div key={brand.id} className="flex bg-amber-50 justify-center items-center  py-2 rounded-2xl">
             <img
             src={brand.image}
             alt={brand.name}
@@ -29,14 +29,14 @@ export function Footer() {
             </span>
           </span>
 
-          <button className="bg-gradient-to-r from-blue-400 to-blue-600 text-white py-2 px-4 rounded-md opacity-50 hover:opacity-100 cursor-pointer">
+          <button className="bg-gradient-to-r from-blue-400 to-blue-600 text-white px-1 py-2 rounded-md opacity-50 hover:opacity-100 cursor-pointer">
             Contato Whatsapp
           </button>
         </div>
 
         <div className="flex flex-col gap-2">
           <p className="font-bold text-2xl">Contatos</p>
-          <span className="flex gap-2">
+          <span className="flex gap-2 w-[200px]">
             <FaWhatsapp size={24} color="#000" />
             (11) 99999-9999
           </span>
@@ -47,7 +47,7 @@ export function Footer() {
         </div>
 
       <div className="flex flex-col gap-2">
-          <p className="font-bold text-2xl">Redes Sociais</p>
+          <p className="font-bold text-2xl w-[200px]">Redes Sociais</p>
         <div className="flex gap-2">
           <FaInstagram size={24} color="#000" className="hover:scale-110 cursor-pointer" />
           <FaWhatsapp size={24} color="#000" className="hover:scale-110 cursor-pointer" />
