@@ -5,7 +5,7 @@ export function Footer() {
   return (
     <footer className="bg-slate-200 py-4 flex flex-col justify-center items-center">
       <p className="mt-4 font-bold text-3xl">Marcas</p>
-      <div className="grid grid-cols-4 md:flex gap-4 mt-4">
+      <div className="grid grid-cols-3  md:flex gap-4 mt-4">
         {brands.map((brand) => (
           <div key={brand.id} className="flex bg-amber-50 justify-center items-center  py-2 rounded-2xl">
             <img
@@ -29,7 +29,7 @@ export function Footer() {
             </span>
           </span>
 
-          <button className="bg-gradient-to-r from-blue-400 to-blue-600 text-white px-1 py-2 rounded-md opacity-50 hover:opacity-100 cursor-pointer">
+          <button className="bg-gradient-to-r from-blue-400 to-blue-600 text-white w-[200px] py-2 rounded-md opacity-50 hover:opacity-100 cursor-pointer">
             Contato Whatsapp
           </button>
         </div>
