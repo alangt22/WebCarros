@@ -11,7 +11,7 @@ export function Footer() {
             <img
             src={brand.image}
             alt={brand.name}
-            className="w-full h-8"
+            className="w-10 h-8"
           />
           </div>
         ))}
