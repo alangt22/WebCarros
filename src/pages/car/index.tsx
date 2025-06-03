@@ -238,7 +238,7 @@ export function CarDetail() {
 
 
               <a
-                href={`https://api.whatsapp.com/send?phone=${user?.phone}&text=Ola vi esse ${car?.name}no site WebCarros e fiquei interessado!`}
+                href={`https://api.whatsapp.com/send?phone=${user?.phone}&text=Ola, vi esse ${car?.name.toLowerCase()} no site WebCarros e fiquei interessado!`}
                 target="_blank"
                 className=" cursor-pointer bg-green-500 w-full hover:scale-95 text-white flex items-center justify-center gap-2 my-6 h-11 text-xl rounded-lg font-medium"
               >

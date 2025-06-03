@@ -284,7 +284,7 @@ export function New() {
           <div className="flex w-full mb-3 flex-row items-center gap-4">
             <div className="w-full">
           <div className="mb-3">
-            <p className="mb-2 font-medium">Marca do carro</p>
+            <p className="mb-2 font-medium">Cidade</p>
             <select
               {...register("city")}
               className="border-2 w-full rounded-md h-10 px-2"
